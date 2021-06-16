@@ -37,11 +37,11 @@ Se hace testing con **Jest** y **supertest** que ya vienen de serie con nestJS.
 
 * **_id** *objectID* Id autogestionado por mongoose
 
-* **title** *string* Contenido de la nota
+* **title** *string* *requerido* Contenido de la nota
 
-* **isFav** *boolean* Marca como favorito una nota
+* **isFav** *boolean* *opcional* *predeterminado false* Marca como favorito una nota
 
-* **date** *Date* Fecha de creación de la nota
+* **date** *Date* *privado* *predeterminado fecha actual* Fecha de creación de la nota
 
 
 ### Endpoints

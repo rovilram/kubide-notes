@@ -62,6 +62,7 @@ export class NoteController {
     this.noteService.validateId(idNote);
 
     const note = await this.noteService.getNote(idNote);
+
     return res.status(HttpStatus.OK).json({
       message: `Recibida la nota con id ${idNote}`,
       note,

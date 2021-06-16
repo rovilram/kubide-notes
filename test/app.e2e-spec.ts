@@ -4,18 +4,32 @@ import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
 import * as mongoose from 'mongoose';
 import { Note } from '../src/note/interfaces/note.interface';
+import { ConfigModule } from '@nestjs/config';
+import { getModelToken, MongooseModule } from '@nestjs/mongoose';
+import { NoteSchema } from '../src/note/schemes/note.schema';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
   let newNote;
+  let noteModel: mongoose.Model<Note>;
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [
+        AppModule,
+        ConfigModule.forRoot({ isGlobal: true }),
+        MongooseModule.forFeature([{ name: 'Note', schema: NoteSchema }]),
+        MongooseModule.forRoot(process.env.MONGODB_URI_TEST),
+      ],
     }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
+    noteModel = moduleFixture.get(getModelToken('Note'));
+  });
+
+  beforeAll(async () => {
+    await noteModel.deleteMany({});
   });
 
   describe('api server is working', () => {

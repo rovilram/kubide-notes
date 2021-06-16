@@ -17,6 +17,7 @@ export class NoteService {
 
   async getNote(idNote: string): Promise<Note> {
     const note = await this.noteModel.findById(idNote);
+    if (!note) throw new BadRequestException(`No hay notas con ID: ${idNote}`);
     return note;
   }
 

@@ -46,7 +46,7 @@ Se hace testing con **Jest** y **supertest** que ya vienen de serie con nestJS.
 
 ### Endpoints
 
-* *GET* **/** ("Hello World" para verificar que el servidor está levantado)
+* *GET* **/** "Hello World" para verificar que el servidor está levantado
 
 * *GET* **/note** Recibe todas las notas
 
@@ -77,6 +77,14 @@ Se hace testing unitario de las funciones de note.service y end2end de los endpo
   npm install
 ```
 
+* Configurar la base de datos. Es necesario un archivo .env en el cual introducir la cadena de conexión de mongoDB. Tiene este formato:
+```.env
+#MONGODB
+MONGODB_URI='mongodb://localhost:27017/kubide-notes'
+MONGODB_URI_TEST='mongodb://localhost:27017/kubide-notes-test'
+```
+
+
 * Arrancar el servidor API:
 ```bash
   npm start
@@ -84,7 +92,7 @@ Se hace testing unitario de las funciones de note.service y end2end de los endpo
 
 ### Testing
 
-Se hace testing unitario de las funciones de note.service y end2end de los endpoints (app.controller). En ambos casos se hace directamente sobre mongoDB con una base de datos distinta a la de producción.
+Se hace testing unitario de las funciones de note.service y end2end de los endpoints (app.controller). En ambos casos se hace directamente sobre mongoDB con una base de datos distinta a la de producción. También en la carpeta docs, se incluye json de configuración de **postman** para verificar los endpoint del servidor.
 
 Para pasar los test:
 
@@ -96,4 +104,4 @@ Para pasar los test:
 * Test **unitarios**:
 ```bash
   npm run test
-```
+``` 

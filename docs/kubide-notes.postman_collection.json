@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "2a6a0e92-1506-4b2d-87c2-80e8270a5fca",
+		"name": "kubide-notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/note",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get note by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/note/60c7ccea5c3ad6016b77abcb",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"note",
+						"60c7ccea5c3ad6016b77abcb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create note",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"dfgdfgdfg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/note",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "toggle favorite note",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"nueva nota\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/note/fav/60c7ccea5c3ad6016b77abcb",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"note",
+						"fav",
+						"60c7ccea5c3ad6016b77abcb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get favorites notes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/note/fav",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"note",
+						"fav"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000"
+		}
+	]
+}

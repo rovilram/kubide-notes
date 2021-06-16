@@ -4,7 +4,7 @@ export const NoteSchema = new Schema({
   title: {
     type: String,
     trim: true,
-    required: [true, 'Note title is required'],
+    required: true,
   },
   isFav: {
     type: Boolean,
